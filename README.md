@@ -19,7 +19,7 @@
 
 Планы большие, но нужно хотя бы довести состояние прокета до Minimum Viable Product.
 
-Удачи мне.
+Удачи мне на моем пути 'разработчика'.
 
 <img width="394" height="450" alt="image" src="https://github.com/user-attachments/assets/9df4ccfc-908d-4ce7-92af-1a005f9f6560" />
 
