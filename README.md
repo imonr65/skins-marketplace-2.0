@@ -27,6 +27,7 @@
 Для будущего комфортного написания кода и уменьшения ошибок из-за непонимания архитектуры проекта, я первым делом приступлю к проектированию 'скелета проекта' по этапам.
 ### Этап 1: Сбор событий (Event Storming)
 Все это делаю в Miro - https://miro.com/welcomeonboard/NzEzMmxVellScUdkYlFya3FmeHdTTDZFVldjRjlUMW1DUWk4QlZ5bmxFT2lRNkpjLytVNFVQdExEZjBJN01rc2pHVFYyeXhNeVZ5K0tFd1JWZjVMR05PMEdBMHIyVkFwTllIdEdBTHZ3K2ZlMnEyUTBmdzlHcUJWckFUeVJJdGNnbHpza3F6REdEcmNpNEFOMmJXWXBBPT0hdjE=?share_link_id=15006480463
+
 Сейчас я нахожусь на этапе проектирования бизнес-логики:
 * Просто выписываю все возможные события системы маркетплейса
 * Я их не группирую, чтобы сфокусироваться только написание событий
