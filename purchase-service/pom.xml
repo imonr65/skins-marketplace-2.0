@@ -8,18 +8,16 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>listing-service</artifactId>
-    <name>listing-service</name>
-    <description>listing-service</description>
+    <artifactId>purchase-service</artifactId>
+    <name>purchase-service</name>
+    <description>purchase-service</description>
 
-    <properties>
-        <java.version>21</java.version>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
+
     </dependencies>
 
     <build>
