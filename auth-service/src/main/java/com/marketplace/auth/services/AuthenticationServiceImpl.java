@@ -1,22 +1,28 @@
 package com.marketplace.auth.services;
 
-import com.marketplace.auth.dto.JwtAuthenticationResponse;
+import com.marketplace.auth.dto.TokenResponse;
+import com.marketplace.auth.dto.TokensPair;
 import com.marketplace.auth.dto.LoginRequest;
 import com.marketplace.auth.dto.UserRegisterRequest;
 import com.marketplace.auth.exceptions.EmailAlreadyExistsException;
+import com.marketplace.auth.exceptions.InvalidTokenException;
 import com.marketplace.auth.exceptions.UserNotFoundException;
 import com.marketplace.auth.models.User;
 import com.marketplace.auth.models.UserRole;
 import com.marketplace.auth.repository.UserRepository;
 import com.marketplace.auth.security.CustomUserDetailsImpl;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.JwtException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -31,6 +37,11 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final PasswordEncoder passwordEncoder;
 
     private final AuthenticationManager authenticationManager;
+
+    private final RefreshTokenStore refreshTokenStore;
+
+    @Value("${token.refresh.expiration}")
+    private Duration refreshExpiration;
 
     @Override
     public void register(UserRegisterRequest request) {
@@ -51,22 +62,62 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     }
 
     @Override
-    public JwtAuthenticationResponse signIn(LoginRequest request) {
-        Optional<User> userOptional = userRepository.findUserByEmail(request.email());
-        if (userOptional.isEmpty()) {
-            throw new UserNotFoundException("User not found");
-        }
-
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
+    public TokensPair login(LoginRequest request) {
+        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                 request.email(),
                 request.password()
         ));
 
-        User user = userOptional.get();
+        CustomUserDetailsImpl userDetails = (CustomUserDetailsImpl) authentication.getPrincipal();
 
-        UserDetails userDetails = new CustomUserDetailsImpl(user);
-        String token = jwtService.generateToken(userDetails);
-
-        return new JwtAuthenticationResponse(token);
+        User user = userDetails.getUser();
+        return issueTokens(user);
     }
+
+    @Override
+    public TokensPair refresh(String refreshToken) {
+        Claims claims = jwtService.parse(refreshToken);
+        if (!jwtService.isRefresh(claims)) {
+            throw new InvalidTokenException("Not a refresh token");
+        }
+
+        String jti = claims.getId();
+        if (!refreshTokenStore.isActive(jti)) {
+            throw new InvalidTokenException("Refresh token revoked or unknown");
+        }
+
+        refreshTokenStore.revoke(jti);
+
+        User user = User.builder()
+                .id(jwtService.extractUserId(claims))
+                .name(claims.getSubject())
+                .role(jwtService.extractRole(claims))
+                .build();
+        return issueTokens(user);
+    }
+
+    @Override
+    public void logout(String refreshToken) {
+        if (refreshToken == null) {
+            return;
+        }
+
+        try {
+            Claims claims = jwtService.parse(refreshToken);
+            refreshTokenStore.revoke(claims.getId());
+        } catch (JwtException e) {
+
+        }
+    }
+
+    private TokensPair issueTokens(User user) {
+        String accessToken = jwtService.generateAccessToken(user);
+        String refreshToken = jwtService.generateRefreshToken(user);
+
+        Claims refreshClaims = jwtService.parse(refreshToken);
+        refreshTokenStore.save(refreshClaims.getId(), user.getId(), refreshExpiration);
+
+        return new TokensPair(accessToken, refreshToken);
+    }
+
 }

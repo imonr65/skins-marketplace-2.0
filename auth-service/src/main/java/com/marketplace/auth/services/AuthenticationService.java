@@ -1,14 +1,17 @@
 package com.marketplace.auth.services;
 
-import com.marketplace.auth.dto.JwtAuthenticationResponse;
+import com.marketplace.auth.dto.TokenResponse;
+import com.marketplace.auth.dto.TokensPair;
 import com.marketplace.auth.dto.LoginRequest;
 import com.marketplace.auth.dto.UserRegisterRequest;
-import org.springframework.http.ResponseEntity;
 
 public interface AuthenticationService  {
 
     void register(UserRegisterRequest request);
 
-    JwtAuthenticationResponse signIn(LoginRequest request);
+    TokensPair login(LoginRequest request);
 
+    TokensPair refresh(String refreshToken);
+
+    void logout(String refreshToken);
 }
