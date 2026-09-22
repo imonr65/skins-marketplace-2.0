@@ -2,4 +2,7 @@ spring:
   application:
     name: account-service
   liquibase:
-    change-log: migrations
+    change-log: migrations/db.changelog-master.yaml
+  jpa:
+    hibernate:
+      ddl-auto: validate
