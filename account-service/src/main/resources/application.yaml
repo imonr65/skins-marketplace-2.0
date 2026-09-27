@@ -1,3 +1,7 @@
+server:
+  port: 8002
+
+
 spring:
   application:
     name: account-service
@@ -6,3 +10,11 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
+
+token:
+  signing:
+    key: ${JWT_SECRET}
+  access:
+    expiration: 15m
+  refresh:
+    expiration: 30d

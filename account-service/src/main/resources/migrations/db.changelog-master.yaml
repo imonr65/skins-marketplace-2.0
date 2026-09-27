@@ -1,3 +1,5 @@
 databaseChangeLog:
   - include:
-      file:
+      file: migrations/items/v1/001-create_users_table.sql
+  - include:
+      file: migrations/items/v1/002-create_catalog_items_tables.sql

@@ -1,3 +1,38 @@
 spring:
   application:
     name: listing-service
+  kafka:
+    consumer:
+      group-id: listing-group
+
+app:
+  kafka-topics:
+    items:
+      skins:
+        name: skins
+        partitions: 3
+        replicas: 3
+        min-in-sync-replicas: 2
+      agents:
+        name: agents
+        partitions: 3
+        replicas: 3
+        min-in-sync-replicas: 2
+      containers:
+        name: containers
+        partitions: 3
+        replicas: 3
+        min-in-sync-replicas: 2
+      stickers:
+        name: stickers
+        partitions: 3
+        replicas: 3
+        min-in-sync-replicas: 2
+      gloves:
+        name: gloves
+        partitions: 3
+        replicas: 3
+        min-in-sync-replicas: 2
+
+
+
