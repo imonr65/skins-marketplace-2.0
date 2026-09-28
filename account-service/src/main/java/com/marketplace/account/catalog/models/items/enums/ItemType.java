@@ -1,4 +1,4 @@
-package com.marketplace.account.catalog.items.enums;
+package com.marketplace.account.catalog.models.items.enums;
 
 import lombok.Getter;
 

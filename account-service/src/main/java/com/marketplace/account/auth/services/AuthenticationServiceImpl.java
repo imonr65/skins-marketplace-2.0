@@ -1,5 +1,6 @@
 package com.marketplace.account.auth.services;
 
+import com.marketplace.account.auth.dto.LoginRequest;
 import com.marketplace.account.auth.dto.TokensPair;
 import com.marketplace.account.auth.dto.UserRegisterRequest;
 import com.marketplace.account.auth.exceptions.EmailAlreadyExistsException;
@@ -9,9 +10,13 @@ import com.marketplace.account.auth.models.UserRole;
 import com.marketplace.account.auth.repository.UserRepository;
 import com.marketplace.account.auth.security.CustomUserDetailsImpl;
 
+import io.jsonwebtoken.Claims;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

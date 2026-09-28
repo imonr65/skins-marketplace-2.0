@@ -1,55 +1,41 @@
-create table if not exists weapons_templates(
+create table if not exists agents_templates(
     id serial primary key,
-    weapon_name varchar(150) not null unique,
-    image_url text not null,
+    agent_name varchar(80) not null unique,
+    image_url text,
+    agent_rarity varchar(100) not null
+);
 
-    wear varchar(50) not null,
-    item_type varchar(50) not null,
-    weapon_model varchar(50) not null,
-    weapon_rarity varchar(50) not null,
+create table if not exists containers_templates(
+    id serial primary key,
+    container_name varchar(80) not null unique,
+    rarity varchar(50) not null,
+    image_url text
 );
 
 create table if not exists gloves_templates(
     id serial primary key,
-    gloves_name varchar(150) not null unique,
-    image_url text not null unique,
+    gloves_name varchar(80) not null unique,
+    image_url text,
 
     wear varchar(50) not null,
+    gloves_rarity varchar(50) not null,
     gloves_model varchar(50) not null,
-    item_type varchar(50) not null,
-    gloves_rarity - varchar(50) not null
 );
 
-
-create table if not exists containers_templates(
+create table if not exists stickers_templates(
     id serial primary key,
-    container_name varchar(150) not null unique,
-    image_url text not null,
+    image_url text,
 
-    rarity varchar(50) not null,
-    item_type varchar(50) not null,
-
---     fk item_pool_id будет на таблицу, хранящая в себе информацию, какие предметы в себе содержит контейнер
-
+    sticker_name varchar(80) unique not null,
+    sticker_rarity varchar(50) not null
 );
 
-create table if not exists agents_templates(
+create table if not exists weapons_templates(
     id serial primary key,
-    agent_name varchar(150) not null unique,
-    image_url text not null,
+    weapon_name varchar(80) unique not null,
+    image_url text,
 
-    agent_rarity varchar(50) not null,
-    item_type varchar(50) not null
+    wear varchar(50) not null,
+    weapon_model varchar(50) not null,
+    weapon_rarity varchar(50) not null,
 );
-
-create table if not exists stikers_templates(
-    id serial primary key,
-    stiker_name varchar(150) not null unique,
-    image_url text not null,
-
-    stiker_rarity varchar(50) not null,
-    item_type varchar(50) not null,
-
-);
-
-

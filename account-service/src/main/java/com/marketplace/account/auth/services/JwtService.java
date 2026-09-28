@@ -1,6 +1,7 @@
 package com.marketplace.account.auth.services;
 
 import com.marketplace.account.auth.models.User;
+import com.marketplace.account.auth.models.UserRole;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;

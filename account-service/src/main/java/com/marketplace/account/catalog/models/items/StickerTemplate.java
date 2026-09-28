@@ -1,6 +1,6 @@
-package com.marketplace.account.catalog.items;
+package com.marketplace.account.catalog.models.items;
 
-import com.marketplace.account.catalog.items.enums.rarities.ContainerRarity;
+import com.marketplace.account.catalog.models.items.enums.rarities.StickerRarity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,20 +12,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Container {
+public class StickerTemplate {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false, length = 80)
-    private String name;
+    private String stickerName;
+
+    private String imageUrl;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private ContainerRarity rarity;
-
-    @Column
-    private String imageUrl;
+    private StickerRarity stickerRarity;
 
 }
+

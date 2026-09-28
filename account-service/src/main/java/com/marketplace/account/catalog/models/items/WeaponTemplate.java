@@ -1,9 +1,8 @@
-package com.marketplace.account.catalog.items;
+package com.marketplace.account.catalog.models.items;
 
-import com.marketplace.account.catalog.items.enums.ItemType;
-import com.marketplace.account.catalog.items.enums.WeaponModel;
-import com.marketplace.account.catalog.items.enums.Wear;
-import com.marketplace.account.catalog.items.enums.rarities.WeaponRarity;
+import com.marketplace.account.catalog.models.items.enums.WeaponModel;
+import com.marketplace.account.catalog.models.items.enums.Wear;
+import com.marketplace.account.catalog.models.items.enums.rarities.WeaponRarity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,22 +21,18 @@ public class WeaponTemplate {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String name;
+    @Column(nullable = false, length = 80)
+    private String weaponName;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50)
     @Enumerated(EnumType.STRING)
     private Wear wear;
 
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private ItemType itemType;
-
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50)
     @Enumerated(EnumType.STRING)
     private WeaponModel weaponModel;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50)
     @Enumerated(EnumType.STRING)
     private WeaponRarity weaponRarity;
 

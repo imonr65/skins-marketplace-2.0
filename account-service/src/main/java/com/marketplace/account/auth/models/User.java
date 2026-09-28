@@ -1,6 +1,10 @@
 package com.marketplace.account.auth.models;
 
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,4 +30,6 @@ public class User {
     private String password;
 
     private UserRole role;
+
+    private String profilePhoto;
 }
