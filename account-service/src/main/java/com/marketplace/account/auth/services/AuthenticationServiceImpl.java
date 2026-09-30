@@ -9,7 +9,7 @@ import com.marketplace.account.auth.models.User;
 import com.marketplace.account.auth.models.UserRole;
 import com.marketplace.account.auth.repository.UserRepository;
 import com.marketplace.account.auth.security.CustomUserDetailsImpl;
-
+import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Claims;
 import lombok.RequiredArgsConstructor;
 
@@ -89,6 +89,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         User user = User.builder()
                 .id(jwtService.extractUserId(claims))
                 .name(claims.getSubject())
+                .email(claims.getSubject())
                 .role(jwtService.extractRole(claims))
                 .build();
         return issueTokens(user);
