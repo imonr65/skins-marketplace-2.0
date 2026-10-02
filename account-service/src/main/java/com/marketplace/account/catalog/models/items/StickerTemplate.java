@@ -27,8 +27,5 @@ public class StickerTemplate extends Item{
     @Enumerated(EnumType.STRING)
     private StickerEffect effect;
 
-    private Set<String> creates;
-
-    private Set<String> collections;
 }
 
