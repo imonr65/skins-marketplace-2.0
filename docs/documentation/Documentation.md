@@ -72,7 +72,7 @@
 1) *name*
 2) *slug*
 3) *imageUrl*
-4) *itemType*
+4) *itemCategory*
 5) *quality*
 
 ## Таблицы

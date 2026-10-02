@@ -1,7 +1,6 @@
 package com.marketplace.account.auth.security;
 
 
-import com.marketplace.account.auth.exceptions.UserNotFoundException;
 import com.marketplace.account.auth.models.User;
 import com.marketplace.account.auth.repository.UserRepository;
 import lombok.RequiredArgsConstructor;

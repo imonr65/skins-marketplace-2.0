@@ -5,7 +5,7 @@ create table if not exists agents_templates(
     agent_rarity varchar(100) not null
 );
 
-create table if not exists containers_templates(
+create table if not exists crates_templates(
     id serial primary key,
     container_name varchar(80) not null unique,
     rarity varchar(50) not null,
@@ -30,12 +30,13 @@ create table if not exists stickers_templates(
     sticker_rarity varchar(50) not null
 );
 
-create table if not exists weapons_templates(
+create table if not exists skins_templates(
     id serial primary key,
-    weapon_name varchar(80) unique not null,
+    skin_name varchar(80) unique not null,
     image_url text,
 
     wear varchar(50) not null,
-    weapon_model varchar(50) not null,
-    weapon_rarity varchar(50) not null,
+    model varchar(50) not null,
+    rarity varchar(50) not null,
+    category varchar(50) not null
 );

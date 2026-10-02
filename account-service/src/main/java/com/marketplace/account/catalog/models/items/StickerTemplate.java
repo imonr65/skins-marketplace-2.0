@@ -1,31 +1,34 @@
 package com.marketplace.account.catalog.models.items;
 
-import com.marketplace.account.catalog.models.items.enums.rarities.StickerRarity;
+import com.marketplace.account.catalog.models.items.enums.StickerEffect;
+import com.marketplace.account.catalog.models.items.enums.StickerType;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
-@Data
-@Builder
+import java.util.Set;
+
+@SuperBuilder
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class StickerTemplate {
+@Table(name = "stickers_templates")
+@PrimaryKeyJoinColumn(name = "item_id")
+public class StickerTemplate extends Item{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String tournament;
 
-    @Column(nullable = false, length = 80)
-    private String stickerName;
-
-    private String imageUrl;
-
-    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private StickerRarity stickerRarity;
+    private StickerType type;
 
+    @Column
+    @Enumerated(EnumType.STRING)
+    private StickerEffect effect;
+
+    private Set<String> creates;
+
+    private Set<String> collections;
 }
 

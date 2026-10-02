@@ -1,31 +1,27 @@
 package com.marketplace.account.catalog.models.items;
 
-import com.marketplace.account.catalog.models.items.enums.rarities.AgentRarity;
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.marketplace.account.catalog.models.items.enums.Team;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.Table;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
-@Data
-@Builder
+import java.util.Collection;
+import java.util.Set;
+
+@Getter
+@Setter
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Agent {
+@Table(name = "agents_templates")
+public class Agent extends Item{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Set<Collection> collections;
 
-    @Column(nullable = false, length = 80, unique = true)
-    private String agentName;
-
-    @Column
-    private String imageUrl;
-
-    @Column(nullable = false, length = 100)
     @Enumerated(EnumType.STRING)
-    private AgentRarity agentRarity;
-
+    private Team team;
 }

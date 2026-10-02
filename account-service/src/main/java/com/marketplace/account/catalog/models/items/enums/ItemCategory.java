@@ -3,7 +3,7 @@ package com.marketplace.account.catalog.models.items.enums;
 import lombok.Getter;
 
 @Getter
-public enum ItemType {
+public enum ItemCategory {
 
     PISTOL("Pistol"),
     RIFLE("Rifle"),
@@ -23,7 +23,7 @@ public enum ItemType {
 
     private final String displayName;
 
-    ItemType(String displayName) {
+    ItemCategory(String displayName) {
         this.displayName = displayName;
     }
 }
