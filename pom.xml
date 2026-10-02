@@ -41,6 +41,7 @@
         <module>api-gateway</module>
         <module>wallet-service</module>
         <module>web-service</module>
+        <module>catalog-service</module>
     </modules>
 
     <dependencyManagement>
