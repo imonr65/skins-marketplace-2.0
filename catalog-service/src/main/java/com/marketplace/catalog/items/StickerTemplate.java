@@ -11,9 +11,9 @@ import lombok.experimental.SuperBuilder;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "stickers_templates")
-@PrimaryKeyJoinColumn(name = "item_id")
+//@Entity
+//@Table(name = "stickers_templates")
+//@PrimaryKeyJoinColumn(name = "item_id")
 public class StickerTemplate extends Item{
 
     private String tournament;

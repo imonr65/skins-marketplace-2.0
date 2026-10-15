@@ -3,7 +3,7 @@ package com.marketplace.catalog.items.enums;
 import lombok.Getter;
 
 @Getter
-public enum Wear {
+public enum WearType {
     Factory_New("Factory New"),
     Minimal_Wear("Minimal Wear"),
     Field_Tested("Field-Tested"),
@@ -12,7 +12,7 @@ public enum Wear {
 
     private final String displayName;
 
-    Wear(String displayName) {
+    WearType(String displayName) {
         this.displayName = displayName;
     }
 }

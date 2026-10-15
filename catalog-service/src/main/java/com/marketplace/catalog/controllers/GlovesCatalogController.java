@@ -2,6 +2,7 @@ package com.marketplace.catalog.controllers;
 
 import com.marketplace.catalog.dto.requests.GlovesCatalogRequest;
 import com.marketplace.catalog.dto.responses.GlovesTemplateResponse;
+import com.marketplace.catalog.items.Agent;
 import com.marketplace.catalog.services.CatalogService;
 import jakarta.validation.Valid;import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

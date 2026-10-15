@@ -13,8 +13,8 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "agents_templates")
+//@Entity
+//@Table(name = "agents_templates")
 public class Agent extends Item{
 
     @Enumerated(EnumType.STRING)

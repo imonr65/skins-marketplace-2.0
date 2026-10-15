@@ -28,7 +28,7 @@ public abstract class Item {
     @Column(nullable = false)
     private String imageUrl;
 
-    @Column(nullable = false, length = 80)
+    @Column(name = "item_name", nullable = false, length = 80)
     private String name;
 
     @Column(nullable = false, length = 40)
@@ -39,19 +39,26 @@ public abstract class Item {
     @Enumerated(EnumType.STRING)
     private Rarity rarity;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 1000)
     private String description;
+
+    // для будущей синхронизацией с ценами и апи Steam:
+    @Column(name = "market_hash_name", nullable = false, unique = true)
+    private String marketHashName;
+
+    @Column(name = "external_id", nullable = false, length = 100, unique = true)
+    private String externalId;
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Item item = (Item) o;
-        return Objects.equals(id, item.id);
+        return Objects.equals(id, item.id) && Objects.equals(externalId, item.externalId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id);
+        return Objects.hash(id, externalId);
     }
 }
 

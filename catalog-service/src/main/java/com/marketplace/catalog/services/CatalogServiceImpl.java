@@ -3,9 +3,10 @@ package com.marketplace.catalog.services;
 
 import com.marketplace.catalog.dto.requests.*;
 import com.marketplace.catalog.dto.responses.*;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CatalogServiceImpl implements CatalogService {
-
 
     @Override
     public WeaponTemplateResponse getWeaponTemplateById(Long id) {

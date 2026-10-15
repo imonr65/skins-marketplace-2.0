@@ -9,11 +9,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Data
-@Entity
+//@Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "collections")
+//@Table(name = "collections")
 public class ItemCollection {
 
     @Id
@@ -32,5 +32,5 @@ public class ItemCollection {
             joinColumns = @JoinColumn(name = "collection_id"),
             inverseJoinColumns = @JoinColumn(name = "item_id")
     )
-    private Set<Item> items = new HashSet<>();
+    private Set<Item> items;
 }

@@ -11,9 +11,9 @@ import java.util.Set;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "crates_templates")
-@PrimaryKeyJoinColumn(name = "item_id")
+//@Entity
+//@Table(name = "crates_templates")
+//@PrimaryKeyJoinColumn(name = "item_id")
 public class Crate extends Item{
 
     private LocalDate firstSaleDate;

@@ -1,6 +1,5 @@
 package com.marketplace.catalog.items.enums;
 
-import com.marketplace.account.catalog.models.items.enums.rarities.RarityScope;
 import lombok.Getter;
 
 @Getter
