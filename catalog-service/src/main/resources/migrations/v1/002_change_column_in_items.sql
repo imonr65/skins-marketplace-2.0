@@ -1,0 +1,1 @@
+alter table items alter column market_hash_name drop not null;

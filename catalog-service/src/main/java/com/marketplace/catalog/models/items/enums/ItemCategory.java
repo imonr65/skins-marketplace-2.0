@@ -1,17 +1,18 @@
-package com.marketplace.catalog.items.enums;
+package com.marketplace.catalog.models.items.enums;
 
 import lombok.Getter;
 
 @Getter
 public enum ItemCategory {
 
-    PISTOL("Pistol"),
-    RIFLE("Rifle"),
+    PISTOLS("Pistols"),
+    RIFLES("Rifles"),
     SNIPER_RIFLE("Sniper Rifle"),
-    SMG("SMG"),
+    SMGS("SMGS"),
+    EQUIPMENT("Equipment"),
     HEAVY("Heavy"),
     SHOTGUN("Shotgun"),
-    KNIFE("Knife"),
+    KNIVES("Knives"),
 
     GLOVES("Gloves"),
 

@@ -12,11 +12,6 @@ create table if not exists items(
     item_type varchar(40)
 );
 
-create table if not exists wears(
-    id bigint primary key,
-    wear_type varchar(40) not null
-);
-
 create table if not exists skins_templates(
     item_id uuid primary key,
 
@@ -32,19 +27,15 @@ create table if not exists skins_templates(
         on delete cascade
 );
 
-create table if not exists skins_wears(
+create table if not exists skin_template_wears(
     skin_id uuid not null,
-    wear_id bigint not null,
+    wear varchar(40) not null,
 
-    primary key (skin_id, wear_id),
+    primary key (skin_id, wear),
 
-    constraint fk_skin_wears_skin
-        foreign key (skin_id) references skins_templates(item_id)
-        on delete cascade,
-
-    constraint fk_skin_wears_wear
-        foreign key (wear_id) references wears(id)
-        on delete cascade
+    constraint fk_skin_template_wears_skin
+    foreign key (skin_id) references items(id)
+    on delete cascade
 );
 
 

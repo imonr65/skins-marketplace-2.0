@@ -1,7 +1,7 @@
-package com.marketplace.catalog.items;
+package com.marketplace.catalog.models.items;
 
-import com.marketplace.catalog.items.enums.ItemCategory;
-import com.marketplace.catalog.items.enums.rarities.Rarity;
+import com.marketplace.catalog.models.items.enums.ItemCategory;
+import com.marketplace.catalog.models.items.enums.rarities.Rarity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

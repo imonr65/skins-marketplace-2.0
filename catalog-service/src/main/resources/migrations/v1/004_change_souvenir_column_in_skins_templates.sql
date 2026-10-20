@@ -1,0 +1,1 @@
+alter table skins_templates alter column souvenir drop not null;

@@ -1,4 +1,4 @@
-package com.marketplace.catalog.items;
+package com.marketplace.catalog.models.items;
 
 import jakarta.persistence.*;
 import lombok.*;

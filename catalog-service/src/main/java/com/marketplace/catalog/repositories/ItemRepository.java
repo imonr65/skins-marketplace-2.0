@@ -1,0 +1,11 @@
+package com.marketplace.catalog.repositories;
+
+import com.marketplace.catalog.models.items.Item;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.UUID;
+
+@Repository
+public interface ItemRepository extends JpaRepository<Item, UUID> {
+}

@@ -1,4 +1,4 @@
-package com.marketplace.catalog.items.enums.rarities;
+package com.marketplace.catalog.models.items.enums.rarities;
 
 import lombok.Getter;
 

@@ -1,3 +1,9 @@
 databaseChangeLog:
   - include:
       file: migrations/v1/001_create_item_and_skintemplate_tables.sql
+  - include:
+      file: migrations/v1/002_change_column_in_items.sql
+  - include:
+      file: migrations/v1/003_change_column_skins_templates.sql
+  - include:
+      file: migrations/v1/004_change_souvenir_column_in_skins_templates.sql

@@ -1,4 +1,4 @@
-package com.marketplace.catalog.items.enums.rarities;
+package com.marketplace.catalog.models.items.enums.rarities;
 
 import lombok.Getter;
 
@@ -24,7 +24,7 @@ public enum Rarity {
 
     // === GLOVES ===
     EXTRAORDINARY("Extraordinary", "#FFD700", RarityScope.GLOVES),
-
+    CONTRABAND("Contraband", "#e4ae39", RarityScope.WEAPON),
     // === CONTAINERS ===
     BASE_GRADE("Base Grade", "#B0C3D9", RarityScope.CONTAINER),
 

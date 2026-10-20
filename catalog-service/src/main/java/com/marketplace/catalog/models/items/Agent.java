@@ -1,10 +1,8 @@
-package com.marketplace.catalog.items;
+package com.marketplace.catalog.models.items;
 
-import com.marketplace.catalog.items.enums.Team;
-import jakarta.persistence.Entity;
+import com.marketplace.catalog.models.items.enums.Team;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.Table;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 

@@ -1,7 +1,7 @@
-package com.marketplace.catalog.items;
+package com.marketplace.catalog.models.items;
 
-import com.marketplace.catalog.items.enums.StickerEffect;
-import com.marketplace.catalog.items.enums.StickerType;
+import com.marketplace.catalog.models.items.enums.StickerEffect;
+import com.marketplace.catalog.models.items.enums.StickerType;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
